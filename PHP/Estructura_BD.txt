@@ -1,0 +1,17 @@
+En la base de datos hay tres tablas:
+
+* Campos de la tabla 'users':
+	-user_id -> Identificador de usuario
+	-username -> Nombre de usuario
+	-password -> Contraseña en plano (SÓLO PARA PRUEBAS)
+
+* Campos de la tabla 'profiles':
+	-user -> Identificador de usuario
+	-name
+	-surname
+	-description
+
+* Campos de la tabla 'latch':
+	-user -> Identificador de usuario
+	-accountId -> Identificador de usuario de Latch
+	-otp -> Contraseña de un sólo uso
