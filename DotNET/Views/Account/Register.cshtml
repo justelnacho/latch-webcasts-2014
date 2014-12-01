@@ -1,0 +1,35 @@
+﻿@model LatchTalks.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<hgroup class="title">
+    <h2>@ViewBag.Title. Cree una cuenta nueva.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <ol style="list-style-type:none">
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.TextBoxFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.TextBoxFor(m => m.ConfirmPassword)
+            </li>
+        </ol>
+        <input type="submit" value="Registrarse"  class="btn btn-primary"  />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

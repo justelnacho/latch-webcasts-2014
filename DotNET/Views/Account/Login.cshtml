@@ -1,0 +1,43 @@
+﻿@model LatchTalks.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+<hgroup class="title">
+      <h2>@ViewBag.Title.</h2>
+</hgroup>
+
+<section id="loginForm">
+  
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <ol style="list-style-type: none">
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.TextBoxFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </li>
+            </ol>
+            <input type="submit" value="Iniciar sesión" class="btn btn-primary" />
+        </fieldset>
+        <p>
+            @Html.ActionLink("Regístrese", "Register") si no tiene ninguna cuenta.
+        </p>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

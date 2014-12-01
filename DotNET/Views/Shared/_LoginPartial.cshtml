@@ -1,0 +1,21 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+
+    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav">
+            <li>  @Html.ActionLink("Mi cuenta", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Administrar" })</li>
+            <li> <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </ul>
+    }
+    </text>
+}
+else
+{
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

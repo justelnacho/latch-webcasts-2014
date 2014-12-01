@@ -1,0 +1,33 @@
+﻿<h3>Cuenta de Latch</h3>
+
+@if (!string.IsNullOrEmpty(ViewBag.LatchAccountId))
+{
+    using (Html.BeginForm("Unpair", "Account"))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <fieldset>
+        <span>Ya estas pareado con Latch. AccountId: @ViewBag.LatchAccountId</span><br />
+        <input type="submit" value="Desparear" class="btn btn-primary" />
+    </fieldset>
+    }
+}
+else
+{
+    using (Html.BeginForm("Pair", "Account"))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <fieldset>
+        <ol style="list-style-type: none">
+            <li>
+                @Html.Label("Token")
+                @Html.TextBox("token")
+            </li>
+        </ol>
+        <input type="submit" value="Parear" class="btn btn-primary" />
+    </fieldset>
+    }
+}
+
+

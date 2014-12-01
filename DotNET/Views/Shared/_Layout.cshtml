@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Mi aplicación ASP.NET MVC</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/jquery.slider.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="page-sub-page page-sign-in page-account" id="page-top">
+    <!-- Navigation -->
+    <div class="wrapper">
+        <div class="navigation">
+            <div class="container">
+                <header class="navbar" id="top" role="banner">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand nav" id="brand">
+                            <img height="60" src="~/Images/Secundaria_1_RGB_CS4.png" alt="11pathlogo">
+                        </div>
+                    </div>
+                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")  </li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                    <div class="float-right">
+                        <section id="login">
+                            @Html.Partial("_LoginPartial")
+                        </section>
+                    </div>
+                    <!-- /.navbar collapse-->
+                </header>
+                <!-- /.navbar -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.navigation -->
+        <!-- end Navigation -->
+        <div id="page-content">
+            <!-- Breadcrumb -->
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">@ViewBag.Title</li>
+                </ol>
+            </div>
+            <!-- end Breadcrumb -->
+
+            <div class="container">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+        <footer id="page-footer">
+            <div class="inner">
+                <section id="footer-copyright">
+                    <div class="container">
+                        <span>Copyright © 2014. All Rights Reserved.</span>
+                        <span class="pull-right"><a href="#page-top" class="roll">Go to top</a></span>
+                    </div>
+                </section>
+            </div>
+            <!-- /.inner -->
+        </footer>
+        <!-- end Page Footer -->
+    </div>
+    <!-- end Wrapper -->
+    <script type="text/javascript" src="~/Scripts/js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/smoothscroll.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/icheck.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/custom.js"></script>
+    <!--[if gt IE 8]>
+<script type="text/javascript" src="Content/js/ie.js"></script>
+<![endif]-->
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
