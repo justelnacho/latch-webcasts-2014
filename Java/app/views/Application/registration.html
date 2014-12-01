@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{form @Application.doRegister()}
+	<br>
+    <div>
+        <input type="text"  name="username" id="username" value="" placeholder="Usuario" size="35"><br>
+        <input type="text"  name="password" id="password" value="" placeholder="Password" size="35"><br>
+        <input type="text"  name="color" id="color" value="" placeholder="Color favorito" size="35"><br>
+        <input autocomplete="off" type="text"  name="phone" id="phone" value="" placeholder="Telf" size="35"><br><br>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </div>
+#{/form}
+
+<a href="@{Application.index}">Volver</a>

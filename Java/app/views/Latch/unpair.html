@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<br>
+
+#{if (flash.get("pairOk"))}
+ 	<div class="alert alert-success margin-top30">
+		<b>Te has pareado correctamente.</b>
+    </div>
+#{/if}
+
+#{if (flash.get("unpairFail"))}
+ 	<div class="alert alert-danger margin-top30">
+		<b>Error despareando.</b>
+    </div>
+#{/if}
+
+#{form @Application.unpair()}
+	<br>
+    <div>
+        <button type="submit" class="btn btn-primary">Desparear</button>
+    </div>
+#{/form}
+<br>
+
+<a href="@{Application.profile}">Volver</a>
+
+#{if (flash.get("json"))}
+	<br><br>
+	<p>${flash.get("json")}</p>
+#{/if}

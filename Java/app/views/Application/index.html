@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if (flash.get("errorCredentials"))}
+ 	<div class="alert alert-danger margin-top30">
+		<b>Las password es incorrecta.</b>
+    </div>
+#{/if}
+#{else}
+	<br><br>	<br><br><br>
+#{/else}
+#{form @Application.doLogin(), autocomplete: 'off'}
+	<br>
+    <div>
+        <label for="username">Username</label>
+        <input type="text"  name="username" id="username" value="" autocomplete="off" ><br>
+        <label for="password">Password</label>
+        <input type="text"  name="password" id="password" value=""><br>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+#{/form}
+<br>
+
+<a href="@{Application.registration}">Registrar nuevo usuario</a>

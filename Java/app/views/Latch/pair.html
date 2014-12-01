@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<br>
+
+#{if (flash.get("pairFail"))}
+ 	<div class="alert alert-danger margin-top30">
+		<b>El token no es valido</b>
+    </div>
+#{/if}
+
+#{if (flash.get("unpairOk"))}
+ 	<div class="alert alert-success margin-top30">
+		<b>Te has despareado correctamente.</b>
+    </div>
+#{/if}
+
+#{form @Application.pair()}
+	<br>
+    <div>
+    	<label for="token">Token</label>
+        <input type="text"  name="token" id="token" value="" size="30">
+        <button type="submit" class="btn btn-primary">Parear</button>
+    </div>
+#{/form}
+<br>
+
+<a href="@{Application.profile}">Volver</a>
+
+#{if (flash.get("json"))}
+	<br><br>
+	<p>${flash.get("json")}</p>
+#{/if}

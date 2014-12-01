@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<br>
+#{if (flash.get("editOk"))}
+ 	<div class="alert alert-success margin-top30">
+		<b>Perfil editado correctamente.</b>
+    </div>
+#{/if}
+
+#{if (flash.get("editFail"))}
+ 	<div class="alert alert-danger margin-top30">
+		<b>Esta acción está protegida con Latch</b>
+    </div>
+#{/if}
+
+<p><b>Usuario:</b> ${username}</p>
+
+
+
+#{form @Application.editProfile()}
+	<br>
+    <div>
+        <input type="text"  name="color" id="color" value="${user.getColor()}" size="35"><br>
+        <input type="text"  name="phone" id="phone" value="${user.getPhone()}" size="35"><br><br>
+        <button type="submit" class="btn btn-primary">Editar Perfil</button>
+    </div>
+#{/form}
+<br>
+<a href="@{Application.latch}">Protege tu cuenta con Latch!</a>
+<br>
+<a href="@{Application.logout}">Logout</a>
